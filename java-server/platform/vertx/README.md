@@ -6,7 +6,7 @@ Type:
 mvn package vertx:runMod
 ```
 
-Then, open an [echo client](http://jsbin.com/pocet/8/watch?js,console) in your browser.
+Then, open the [corresponding client](http://jsbin.com/pocet/8/watch?js,console) in your browser.
 
 **Note**
 
