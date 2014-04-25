@@ -1,21 +1,19 @@
-package echo;
+package simple;
 
 import io.react.Action;
-import io.react.jwa.JwaBridge;
 import io.react.runtime.DefaultServer;
 import io.react.runtime.Server;
 import io.react.runtime.Socket;
+import io.react.servlet.ServletBridge;
 
-import java.util.Collections;
-import java.util.Set;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
-import javax.websocket.Endpoint;
-import javax.websocket.server.ServerApplicationConfig;
-import javax.websocket.server.ServerEndpointConfig;
-
-public class Bootstrap implements ServerApplicationConfig {
+@WebListener
+public class Bootstrap implements ServletContextListener {
     @Override
-    public Set<ServerEndpointConfig> getEndpointConfigs(Set<Class<? extends Endpoint>> _) {
+    public void contextInitialized(ServletContextEvent event) {
         final Server server = new DefaultServer();
         server.socketAction(new Action<Socket>() {
             @Override
@@ -37,13 +35,10 @@ public class Bootstrap implements ServerApplicationConfig {
                 });
             }
         });
-
-        return Collections.singleton(new JwaBridge("/react")
-        .websocketAction(server.websocketAction()).config());
+        
+        new ServletBridge(event.getServletContext(), "/react").httpAction(server.httpAction());
     }
-
+    
     @Override
-    public Set<Class<?>> getAnnotatedEndpointClasses(Set<Class<?>> scanned) {
-        return Collections.emptySet();
-    }
+    public void contextDestroyed(ServletContextEvent sce) {}
 }

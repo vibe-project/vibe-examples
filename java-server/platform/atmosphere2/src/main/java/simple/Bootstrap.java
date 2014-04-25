@@ -1,4 +1,4 @@
-package echo;
+package simple;
 
 import io.react.Action;
 import io.react.atmosphere.AtmosphereBridge;

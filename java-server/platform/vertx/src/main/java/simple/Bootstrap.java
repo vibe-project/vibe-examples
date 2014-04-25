@@ -1,19 +1,19 @@
-package echo;
+package simple;
 
 import io.react.Action;
 import io.react.runtime.DefaultServer;
 import io.react.runtime.Server;
 import io.react.runtime.Socket;
-import io.react.servlet.ServletBridge;
+import io.react.vertx.VertxBridge;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import org.vertx.java.core.Handler;
+import org.vertx.java.core.http.HttpServer;
+import org.vertx.java.core.http.HttpServerRequest;
+import org.vertx.java.platform.Verticle;
 
-@WebListener
-public class Bootstrap implements ServletContextListener {
+public class Bootstrap extends Verticle {
     @Override
-    public void contextInitialized(ServletContextEvent event) {
+    public void start() {
         final Server server = new DefaultServer();
         server.socketAction(new Action<Socket>() {
             @Override
@@ -35,10 +35,9 @@ public class Bootstrap implements ServletContextListener {
                 });
             }
         });
-        
-        new ServletBridge(event.getServletContext(), "/react").httpAction(server.httpAction());
+
+        HttpServer httpServer = vertx.createHttpServer();
+        new VertxBridge(httpServer, "/react").httpAction(server.httpAction()).websocketAction(server.websocketAction());
+        httpServer.listen(8080);
     }
-    
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {}
 }

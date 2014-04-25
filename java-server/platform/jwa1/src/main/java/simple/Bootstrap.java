@@ -1,19 +1,21 @@
-package echo;
+package simple;
 
 import io.react.Action;
+import io.react.jwa.JwaBridge;
 import io.react.runtime.DefaultServer;
 import io.react.runtime.Server;
 import io.react.runtime.Socket;
-import io.react.vertx.VertxBridge;
 
-import org.vertx.java.core.Handler;
-import org.vertx.java.core.http.HttpServer;
-import org.vertx.java.core.http.HttpServerRequest;
-import org.vertx.java.platform.Verticle;
+import java.util.Collections;
+import java.util.Set;
 
-public class Bootstrap extends Verticle {
+import javax.websocket.Endpoint;
+import javax.websocket.server.ServerApplicationConfig;
+import javax.websocket.server.ServerEndpointConfig;
+
+public class Bootstrap implements ServerApplicationConfig {
     @Override
-    public void start() {
+    public Set<ServerEndpointConfig> getEndpointConfigs(Set<Class<? extends Endpoint>> _) {
         final Server server = new DefaultServer();
         server.socketAction(new Action<Socket>() {
             @Override
@@ -36,8 +38,12 @@ public class Bootstrap extends Verticle {
             }
         });
 
-        HttpServer httpServer = vertx.createHttpServer();
-        new VertxBridge(httpServer, "/react").httpAction(server.httpAction()).websocketAction(server.websocketAction());
-        httpServer.listen(8080);
+        return Collections.singleton(new JwaBridge("/react")
+        .websocketAction(server.websocketAction()).config());
+    }
+
+    @Override
+    public Set<Class<?>> getAnnotatedEndpointClasses(Set<Class<?>> scanned) {
+        return Collections.emptySet();
     }
 }
