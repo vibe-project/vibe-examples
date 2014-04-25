@@ -12,20 +12,20 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {
-	@Override
-	public void contextInitialized(ServletContextEvent event) {
-	    final Server server = new DefaultServer();
-		server.socketAction(new Action<Socket>() {
-			@Override
-			public void on(final Socket socket) {
-			    System.out.println("on socket: " + socket.uri());
-				socket.on("echo", new Action<Object>() {
-					@Override
-					public void on(Object data) {
-					    System.out.println("on echo event: " + data);
-						socket.send("echo", data);
-					}
-				});
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+        final Server server = new DefaultServer();
+        server.socketAction(new Action<Socket>() {
+            @Override
+            public void on(final Socket socket) {
+                System.out.println("on socket: " + socket.uri());
+                socket.on("echo", new Action<Object>() {
+                    @Override
+                    public void on(Object data) {
+                        System.out.println("on echo event: " + data);
+                        socket.send("echo", data);
+                    }
+                });
                 socket.on("chat", new Action<Object>() {
                     @Override
                     public void on(Object data) {
@@ -33,12 +33,12 @@ public class Bootstrap implements ServletContextListener {
                         server.all().send("chat", data);
                     }
                 });
-			}
-		});
-		
-		new ServletBridge(event.getServletContext(), "/react").httpAction(server.httpAction());
-	}
-	
-	@Override
-	public void contextDestroyed(ServletContextEvent sce) {}
+            }
+        });
+        
+        new ServletBridge(event.getServletContext(), "/react").httpAction(server.httpAction());
+    }
+    
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {}
 }
