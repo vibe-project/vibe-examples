@@ -17,3 +17,21 @@ coverage
 .grunt
 build/Release
 node_modules
+
+# https://github.com/github/gitignore/blob/master/PlayFramework.gitignore
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/project
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.iml
+*.eml
+/dist/
+.cache

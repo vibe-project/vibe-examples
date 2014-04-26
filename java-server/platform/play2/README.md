@@ -1,13 +1,13 @@
-A simple echo and chat server running on Vert.x 2. 
+A simple echo and chat server running on Play 2. 
 
 Type:
 
 ```
-mvn package vertx:runMod
+play "run 8080"
 ```
 
 Then, open the [corresponding client](http://jsbin.com/pocet/8/watch?js,console) in your browser.
 
 **Note**
 
-* You don't need to install Vert.x.
+* You need to install Play first.
