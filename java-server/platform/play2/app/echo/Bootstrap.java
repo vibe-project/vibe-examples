@@ -7,18 +7,11 @@ import io.react.runtime.DefaultServer;
 import io.react.runtime.Server;
 import io.react.runtime.Socket;
 
-import play.api.mvc.Codec;
-import play.core.j.JavaResults;
-import play.libs.F.Callback0;
-import play.libs.F.Function;
-import play.libs.F.Function0;
 import play.libs.F.Promise;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Http.Request;
-import play.mvc.Http.Response;
 import play.mvc.Result;
-import play.mvc.Results.Chunks;
 import play.mvc.WebSocket;
 
 public class Bootstrap extends Controller {
