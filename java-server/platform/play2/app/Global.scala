@@ -1,4 +1,4 @@
-import echo.{Bootstrap => T}
+import simple.{Bootstrap => T}
 
 import play.api.GlobalSettings
 import play.api.mvc._
