@@ -1,3 +1,3 @@
-## React Examples
+## Vibe Examples
 
-This project contains various examples of using sub projects of React.
+This project contains various examples of using sub projects of Vibe.

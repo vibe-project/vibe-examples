@@ -1,10 +1,10 @@
 package simple;
 
-import io.react.Action;
-import io.react.runtime.DefaultServer;
-import io.react.runtime.Server;
-import io.react.runtime.Socket;
-import io.react.vertx.VertxBridge;
+import org.atmosphere.vibe.Action;
+import org.atmosphere.vibe.runtime.DefaultServer;
+import org.atmosphere.vibe.runtime.Server;
+import org.atmosphere.vibe.runtime.Socket;
+import org.atmosphere.vibe.vertx.VertxBridge;
 
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.http.HttpServer;
@@ -37,7 +37,7 @@ public class Bootstrap extends Verticle {
         });
 
         HttpServer httpServer = vertx.createHttpServer();
-        new VertxBridge(httpServer, "/react").httpAction(server.httpAction()).websocketAction(server.websocketAction());
+        new VertxBridge(httpServer, "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
         httpServer.listen(8080);
     }
 }

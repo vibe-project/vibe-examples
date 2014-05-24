@@ -5,24 +5,24 @@
     <version>0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <react.version>3.0.0.Alpha1-SNAPSHOT</react.version>
+        <vibe.version>3.0.0.Alpha1-SNAPSHOT</vibe.version>
         <hazelcast.version>3.2</hazelcast.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>react-engine</artifactId>
-            <version>${react.version}</version>
+            <artifactId>vibe-engine</artifactId>
+            <version>${vibe.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>react-runtime</artifactId>
-            <version>${react.version}</version>
+            <artifactId>vibe-runtime</artifactId>
+            <version>${vibe.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>react-atmosphere2</artifactId>
-            <version>${react.version}</version>
+            <artifactId>vibe-atmosphere2</artifactId>
+            <version>${vibe.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>

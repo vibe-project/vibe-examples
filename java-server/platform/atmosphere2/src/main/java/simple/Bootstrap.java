@@ -1,10 +1,10 @@
 package simple;
 
-import io.react.Action;
-import io.react.atmosphere.AtmosphereBridge;
-import io.react.runtime.DefaultServer;
-import io.react.runtime.Server;
-import io.react.runtime.Socket;
+import org.atmosphere.vibe.Action;
+import org.atmosphere.vibe.atmosphere.AtmosphereBridge;
+import org.atmosphere.vibe.runtime.DefaultServer;
+import org.atmosphere.vibe.runtime.Server;
+import org.atmosphere.vibe.runtime.Socket;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -36,7 +36,7 @@ public class Bootstrap implements ServletContextListener {
             }
         });
         
-        new AtmosphereBridge(event.getServletContext(), "/react").httpAction(server.httpAction()).websocketAction(server.websocketAction());
+        new AtmosphereBridge(event.getServletContext(), "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
     }
     
     @Override

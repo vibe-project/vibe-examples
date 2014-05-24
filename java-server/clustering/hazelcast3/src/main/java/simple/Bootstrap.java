@@ -1,9 +1,9 @@
 package simple;
 
-import io.react.Action;
-import io.react.atmosphere.AtmosphereBridge;
-import io.react.runtime.ClusteredServer;
-import io.react.runtime.Socket;
+import org.atmosphere.vibe.Action;
+import org.atmosphere.vibe.atmosphere.AtmosphereBridge;
+import org.atmosphere.vibe.runtime.ClusteredServer;
+import org.atmosphere.vibe.runtime.Socket;
 
 import java.util.Map;
 
@@ -24,7 +24,7 @@ public class Bootstrap implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         HazelcastInstance hazelcast = HazelcastInstanceFactory.newHazelcastInstance(new Config());
         final ClusteredServer server = new ClusteredServer();
-        final ITopic<Map<String, Object>> topic = hazelcast.getTopic("react");
+        final ITopic<Map<String, Object>> topic = hazelcast.getTopic("vibe");
         
         topic.addMessageListener(new MessageListener<Map<String, Object>>() {
             @Override
@@ -62,7 +62,7 @@ public class Bootstrap implements ServletContextListener {
             }
         });
         
-        new AtmosphereBridge(event.getServletContext(), "/react").httpAction(server.httpAction()).websocketAction(server.websocketAction());
+        new AtmosphereBridge(event.getServletContext(), "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
     }
     
     @Override

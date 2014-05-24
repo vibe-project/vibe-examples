@@ -1,10 +1,10 @@
 if (typeof exports === "object") {
     // Only in Node.js
-    var react = require("react-client");
+    var vibe = require("vibe-client");
 }
 
 var global = this;
-react.open("http://localhost:8080/react", {reconnect: false})
+vibe.open("http://localhost:8080/vibe", {reconnect: false})
 .on("open", function() {
     global.socket = this;
     for (var i = 0; i < 10; i++) {

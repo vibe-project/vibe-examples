@@ -6,7 +6,7 @@ import play.core.j._
 
 object Global extends GlobalSettings {
   override def onRouteRequest(req: RequestHeader): Option[Handler] = {
-    if (req.path == "/react") {
+    if (req.path == "/vibe") {
       if (req.method == "GET" && req.headers.get("Upgrade").exists(_.equalsIgnoreCase("websocket"))) {
         Some(JavaWebSocket.ofString(T.ws))
       } else {

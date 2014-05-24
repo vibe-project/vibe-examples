@@ -1,11 +1,11 @@
 package simple;
 
-import io.react.Action;
-import io.react.play.PlayServerHttpExchange;
-import io.react.play.PlayServerWebSocket;
-import io.react.runtime.DefaultServer;
-import io.react.runtime.Server;
-import io.react.runtime.Socket;
+import org.atmosphere.vibe.Action;
+import org.atmosphere.vibe.play.PlayServerHttpExchange;
+import org.atmosphere.vibe.play.PlayServerWebSocket;
+import org.atmosphere.vibe.runtime.DefaultServer;
+import org.atmosphere.vibe.runtime.Server;
+import org.atmosphere.vibe.runtime.Socket;
 
 import play.libs.F.Promise;
 import play.mvc.BodyParser;

@@ -1,10 +1,10 @@
 package simple;
 
-import io.react.Action;
-import io.react.jwa.JwaBridge;
-import io.react.runtime.DefaultServer;
-import io.react.runtime.Server;
-import io.react.runtime.Socket;
+import org.atmosphere.vibe.Action;
+import org.atmosphere.vibe.jwa.JwaBridge;
+import org.atmosphere.vibe.runtime.DefaultServer;
+import org.atmosphere.vibe.runtime.Server;
+import org.atmosphere.vibe.runtime.Socket;
 
 import java.util.Collections;
 import java.util.Set;
@@ -38,7 +38,7 @@ public class Bootstrap implements ServerApplicationConfig {
             }
         });
 
-        return Collections.singleton(new JwaBridge("/react")
+        return Collections.singleton(new JwaBridge("/vibe")
         .websocketAction(server.websocketAction()).config());
     }
 
