@@ -10,5 +10,4 @@ Then, open the [corresponding client](http://jsbin.com/pocet/9/watch?js,console)
 
 **Note**
 
-* Now only atmosphere 2.0 works.
 * Not all servlet containers are supported by Atmosphere.
