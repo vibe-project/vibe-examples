@@ -6,6 +6,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vibe.version>3.0.0.Alpha1-SNAPSHOT</vibe.version>
+        <vibe.platform.version>3.0.0.Alpha1-SNAPSHOT</vibe.platform.version>
         <vertx.version>2.0.2-final</vertx.version>
         <module.name>${project.groupId}~${project.artifactId}~${project.version}</module.name>
         <mods.directory>target/mods</mods.directory>
@@ -25,25 +26,14 @@
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-engine</artifactId>
+            <artifactId>vibe</artifactId>
             <version>${vibe.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-runtime</artifactId>
-            <version>${vibe.version}</version>
+            <artifactId>vibe-platform</artifactId>
+            <version>${vibe.platform.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-vertx2</artifactId>
-            <version>${vibe.version}</version>
-        </dependency>
-<!--         <dependency> -->
-<!--             <groupId>org.slf4j</groupId> -->
-<!--             <artifactId>slf4j-log4j12</artifactId> -->
-<!--             <version>1.7.5</version> -->
-<!--             <scope>runtime</scope> -->
-<!--         </dependency> -->
     </dependencies>
     <build>
         <plugins>

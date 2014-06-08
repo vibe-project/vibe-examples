@@ -6,7 +6,7 @@ Type:
 mvn jetty:run
 ```
 
-Then, open the [corresponding client](http://jsbin.com/pocet/8/watch?js,console) in your browser.
+Then, open the [corresponding client](http://jsbin.com/pocet/9/watch?js,console) in your browser.
 
 **Note**
 

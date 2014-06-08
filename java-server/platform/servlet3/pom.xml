@@ -6,22 +6,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vibe.version>3.0.0.Alpha1-SNAPSHOT</vibe.version>
+        <vibe.platform.version>3.0.0.Alpha1-SNAPSHOT</vibe.platform.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-engine</artifactId>
+            <artifactId>vibe</artifactId>
             <version>${vibe.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-runtime</artifactId>
-            <version>${vibe.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-servlet3</artifactId>
-            <version>${vibe.version}</version>
+            <artifactId>vibe-platform</artifactId>
+            <version>${vibe.platform.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
