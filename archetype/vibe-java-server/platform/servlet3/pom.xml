@@ -5,8 +5,8 @@
     <version>0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vibe.version>3.0.0.Alpha1-SNAPSHOT</vibe.version>
-        <vibe.platform.version>3.0.0.Alpha1-SNAPSHOT</vibe.platform.version>
+        <vibe.version>3.0.0-Alpha1-SNAPSHOT</vibe.version>
+        <vibe.platform.version>3.0.0-Alpha1-SNAPSHOT</vibe.platform.version>
     </properties>
     <dependencies>
         <dependency>
@@ -16,14 +16,13 @@
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-platform</artifactId>
+            <artifactId>vibe-platform-servlet3</artifactId>
             <version>${vibe.platform.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.websocket</groupId>
-            <artifactId>javax.websocket-api</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
     <build>

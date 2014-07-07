@@ -5,8 +5,8 @@
     <version>0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vibe.version>3.0.0.Alpha1-SNAPSHOT</vibe.version>
-        <vibe.platform.version>3.0.0.Alpha1-SNAPSHOT</vibe.platform.version>
+        <vibe.version>3.0.0-Alpha1-SNAPSHOT</vibe.version>
+        <vibe.platform.version>3.0.0-Alpha1-SNAPSHOT</vibe.platform.version>
         <vertx.version>2.0.2-final</vertx.version>
         <module.name>${project.groupId}~${project.artifactId}~${project.version}</module.name>
         <mods.directory>target/mods</mods.directory>
@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-platform</artifactId>
+            <artifactId>vibe-platform-vertx2</artifactId>
             <version>${vibe.platform.version}</version>
         </dependency>
     </dependencies>
