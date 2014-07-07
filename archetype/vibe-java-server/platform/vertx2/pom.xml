@@ -40,7 +40,7 @@
             <plugin>
                 <groupId>io.vertx</groupId>
                 <artifactId>vertx-maven-plugin</artifactId>
-                <version>2.0.1-final</version>
+                <version>2.0.7-final</version>
                 <executions>
                     <execution>
                         <id>PullInDeps</id>
