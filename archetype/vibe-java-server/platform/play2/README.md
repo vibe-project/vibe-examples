@@ -1,7 +1,7 @@
 Type:
 
 ```
-play "run 8080"
+activator "run 8080"
 ```
 
 Then, open the [client](http://jsbin.com/pocet/12/edit) in your browser.
