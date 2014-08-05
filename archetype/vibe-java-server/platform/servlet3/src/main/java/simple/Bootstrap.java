@@ -1,14 +1,14 @@
 package simple;
 
-import org.atmosphere.vibe.Action;
-import org.atmosphere.vibe.runtime.DefaultServer;
-import org.atmosphere.vibe.runtime.Server;
-import org.atmosphere.vibe.runtime.Socket;
-import org.atmosphere.vibe.servlet.ServletBridge;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
+import org.atmosphere.vibe.server.DefaultServer;
+import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.platform.Action;
+import org.atmosphere.vibe.server.platform.servlet3.ServletBridge;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {

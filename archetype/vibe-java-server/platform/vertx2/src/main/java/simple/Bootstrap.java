@@ -1,14 +1,11 @@
 package simple;
 
-import org.atmosphere.vibe.Action;
-import org.atmosphere.vibe.runtime.DefaultServer;
-import org.atmosphere.vibe.runtime.Server;
-import org.atmosphere.vibe.runtime.Socket;
-import org.atmosphere.vibe.vertx.VertxBridge;
-
-import org.vertx.java.core.Handler;
+import org.atmosphere.vibe.server.DefaultServer;
+import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.platform.Action;
+import org.atmosphere.vibe.server.platform.vertx2.VertxBridge;
 import org.vertx.java.core.http.HttpServer;
-import org.vertx.java.core.http.HttpServerRequest;
 import org.vertx.java.platform.Verticle;
 
 public class Bootstrap extends Verticle {

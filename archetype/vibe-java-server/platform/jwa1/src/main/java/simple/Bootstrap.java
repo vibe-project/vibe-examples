@@ -1,17 +1,17 @@
 package simple;
 
-import org.atmosphere.vibe.Action;
-import org.atmosphere.vibe.jwa.JwaBridge;
-import org.atmosphere.vibe.runtime.DefaultServer;
-import org.atmosphere.vibe.runtime.Server;
-import org.atmosphere.vibe.runtime.Socket;
-
 import java.util.Collections;
 import java.util.Set;
 
 import javax.websocket.Endpoint;
 import javax.websocket.server.ServerApplicationConfig;
 import javax.websocket.server.ServerEndpointConfig;
+
+import org.atmosphere.vibe.server.DefaultServer;
+import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.platform.Action;
+import org.atmosphere.vibe.server.platform.jwa1.JwaBridge;
 
 public class Bootstrap implements ServerApplicationConfig {
     @Override

@@ -7,10 +7,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Map;
 
-import org.atmosphere.vibe.Action;
-import org.atmosphere.vibe.runtime.ClusteredServer;
-import org.atmosphere.vibe.runtime.Socket;
-import org.atmosphere.vibe.vertx.VertxBridge;
+import org.atmosphere.vibe.server.ClusteredServer;
+import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.platform.Action;
+import org.atmosphere.vibe.server.platform.vertx2.VertxBridge;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.eventbus.EventBus;
 import org.vertx.java.core.eventbus.Message;

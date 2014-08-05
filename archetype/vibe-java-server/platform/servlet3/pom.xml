@@ -5,19 +5,19 @@
     <version>0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vibe.version>3.0.0-Alpha1-SNAPSHOT</vibe.version>
-        <vibe.platform.version>3.0.0-Alpha1-SNAPSHOT</vibe.platform.version>
+        <vibe.server.version>3.0.0-Alpha1-SNAPSHOT</vibe.server.version>
+        <vibe.server.platform.version>3.0.0-Alpha1-SNAPSHOT</vibe.server.platform.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe</artifactId>
-            <version>${vibe.version}</version>
+            <artifactId>vibe-server</artifactId>
+            <version>${vibe.server.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-platform-servlet3</artifactId>
-            <version>${vibe.platform.version}</version>
+            <artifactId>vibe-server-platform-servlet3</artifactId>
+            <version>${vibe.server.platform.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -39,7 +39,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.1.4.v20140401</version>
+                <version>9.2.2.v20140723</version>
             </plugin>
         </plugins>
     </build>

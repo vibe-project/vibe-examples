@@ -1,15 +1,15 @@
 package simple;
 
-import org.atmosphere.vibe.Action;
-import org.atmosphere.vibe.atmosphere.AtmosphereBridge;
-import org.atmosphere.vibe.runtime.ClusteredServer;
-import org.atmosphere.vibe.runtime.Socket;
-
 import java.util.Map;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
+import org.atmosphere.vibe.server.ClusteredServer;
+import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.platform.Action;
+import org.atmosphere.vibe.server.platform.atmosphere2.AtmosphereBridge;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.core.HazelcastInstance;
