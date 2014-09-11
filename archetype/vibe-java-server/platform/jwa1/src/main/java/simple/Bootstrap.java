@@ -7,11 +7,11 @@ import javax.websocket.Endpoint;
 import javax.websocket.server.ServerApplicationConfig;
 import javax.websocket.server.ServerEndpointConfig;
 
+import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.server.jwa1.JwaBridge;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.Socket;
-import org.atmosphere.vibe.server.platform.Action;
-import org.atmosphere.vibe.server.platform.jwa1.JwaBridge;
 
 public class Bootstrap implements ServerApplicationConfig {
     @Override

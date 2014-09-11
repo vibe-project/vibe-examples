@@ -6,7 +6,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vibe.server.version>3.0.0-Alpha1-SNAPSHOT</vibe.server.version>
-        <vibe.server.platform.version>3.0.0-Alpha1-SNAPSHOT</vibe.server.platform.version>
+        <vibe.platform.version>3.0.0-Alpha1-SNAPSHOT</vibe.platform.version>
     </properties>
     <dependencies>
         <dependency>
@@ -16,8 +16,8 @@
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-server-platform-atmosphere2</artifactId>
-            <version>${vibe.server.platform.version}</version>
+            <artifactId>vibe-platform-server-atmosphere2</artifactId>
+            <version>${vibe.platform.version}</version>
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>

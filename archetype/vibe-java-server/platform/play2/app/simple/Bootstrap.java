@@ -1,11 +1,11 @@
 package simple;
 
+import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.server.play2.PlayServerHttpExchange;
+import org.atmosphere.vibe.platform.server.play2.PlayServerWebSocket;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.Socket;
-import org.atmosphere.vibe.server.platform.Action;
-import org.atmosphere.vibe.server.platform.play2.PlayServerHttpExchange;
-import org.atmosphere.vibe.server.platform.play2.PlayServerWebSocket;
 
 import play.libs.F.Promise;
 import play.mvc.BodyParser;

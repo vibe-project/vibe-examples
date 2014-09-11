@@ -6,10 +6,10 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.server.atmosphere2.AtmosphereBridge;
 import org.atmosphere.vibe.server.ClusteredServer;
 import org.atmosphere.vibe.server.Socket;
-import org.atmosphere.vibe.server.platform.Action;
-import org.atmosphere.vibe.server.platform.atmosphere2.AtmosphereBridge;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.core.HazelcastInstance;

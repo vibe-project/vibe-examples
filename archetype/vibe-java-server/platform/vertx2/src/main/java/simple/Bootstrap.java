@@ -1,10 +1,10 @@
 package simple;
 
+import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.server.vertx2.VertxBridge;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.Socket;
-import org.atmosphere.vibe.server.platform.Action;
-import org.atmosphere.vibe.server.platform.vertx2.VertxBridge;
 import org.vertx.java.core.http.HttpServer;
 import org.vertx.java.platform.Verticle;
 

@@ -4,11 +4,11 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.server.atmosphere2.AtmosphereBridge;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.Socket;
-import org.atmosphere.vibe.server.platform.Action;
-import org.atmosphere.vibe.server.platform.atmosphere2.AtmosphereBridge;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {
