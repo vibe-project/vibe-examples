@@ -10,7 +10,7 @@ import java.util.Map;
 import org.atmosphere.vibe.platform.Action;
 import org.atmosphere.vibe.platform.server.vertx2.VertxBridge;
 import org.atmosphere.vibe.server.ClusteredServer;
-import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.ServerSocket;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.eventbus.EventBus;
 import org.vertx.java.core.eventbus.Message;
@@ -58,9 +58,9 @@ public class Bootstrap extends Verticle {
             }
         });
         
-        server.socketAction(new Action<Socket>() {
+        server.socketAction(new Action<ServerSocket>() {
             @Override
-            public void on(final Socket socket) {
+            public void on(final ServerSocket socket) {
                 System.out.println("on socket: " + socket.uri());
                 socket.on("echo", new Action<Object>() {
                     @Override

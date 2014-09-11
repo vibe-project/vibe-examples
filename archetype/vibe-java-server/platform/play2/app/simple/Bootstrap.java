@@ -5,7 +5,7 @@ import org.atmosphere.vibe.platform.server.play2.PlayServerHttpExchange;
 import org.atmosphere.vibe.platform.server.play2.PlayServerWebSocket;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.ServerSocket;
 
 import play.libs.F.Promise;
 import play.mvc.BodyParser;
@@ -17,9 +17,9 @@ import play.mvc.WebSocket;
 public class Bootstrap extends Controller {
     static Server server = new DefaultServer();
     static {
-        server.socketAction(new Action<Socket>() {
+        server.socketAction(new Action<ServerSocket>() {
             @Override
-            public void on(final Socket socket) {
+            public void on(final ServerSocket socket) {
                 System.out.println("on socket: " + socket.uri());
                 socket.on("echo", new Action<Object>() {
                     @Override

@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebListener;
 import org.atmosphere.vibe.platform.Action;
 import org.atmosphere.vibe.platform.server.atmosphere2.AtmosphereBridge;
 import org.atmosphere.vibe.server.ClusteredServer;
-import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.ServerSocket;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.core.HazelcastInstance;
@@ -41,9 +41,9 @@ public class Bootstrap implements ServletContextListener {
             }
         });
         
-        server.socketAction(new Action<Socket>() {
+        server.socketAction(new Action<ServerSocket>() {
             @Override
-            public void on(final Socket socket) {
+            public void on(final ServerSocket socket) {
                 System.out.println("on socket: " + socket.uri());
                 socket.on("echo", new Action<Object>() {
                     @Override

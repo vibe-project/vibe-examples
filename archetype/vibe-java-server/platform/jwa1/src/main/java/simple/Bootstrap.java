@@ -11,15 +11,15 @@ import org.atmosphere.vibe.platform.Action;
 import org.atmosphere.vibe.platform.server.jwa1.JwaBridge;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.Socket;
+import org.atmosphere.vibe.server.ServerSocket;
 
 public class Bootstrap implements ServerApplicationConfig {
     @Override
     public Set<ServerEndpointConfig> getEndpointConfigs(Set<Class<? extends Endpoint>> _) {
         final Server server = new DefaultServer();
-        server.socketAction(new Action<Socket>() {
+        server.socketAction(new Action<ServerSocket>() {
             @Override
-            public void on(final Socket socket) {
+            public void on(final ServerSocket socket) {
                 System.out.println("on socket: " + socket.uri());
                 socket.on("echo", new Action<Object>() {
                     @Override
