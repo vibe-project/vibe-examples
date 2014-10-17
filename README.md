@@ -25,5 +25,6 @@ An archetype example is port of [basic echo and chat example](http://vibe-projec
         * [Hazelcast 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/hazelcast3)
         * [Vert.x 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/vertx2)
     * By dependency injection.
-        * [Spring](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/spring4)
+        * [Spring 4](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/spring4)
+        * [Guice 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/guice3)
 * [Vibe JavaScript Client](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-javascript-client)
