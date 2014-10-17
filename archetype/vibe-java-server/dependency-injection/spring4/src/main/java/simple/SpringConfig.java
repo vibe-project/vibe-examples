@@ -1,13 +1,9 @@
 package simple;
 
-import javax.servlet.ServletContext;
-
 import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.atmosphere2.AtmosphereBridge;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.ServerSocket;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @ComponentScan(basePackages = { "simple" })
 public class SpringConfig {
-    @Autowired
-    private ServletContext servletContext;
-
+    // Registers the server as a component
     @Bean
     public Server server() {
         final Server server = new DefaultServer();
@@ -43,7 +37,6 @@ public class SpringConfig {
                 });
             }
         });
-        new AtmosphereBridge(servletContext, "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
         return server;
     }
 }

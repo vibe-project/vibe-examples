@@ -7,10 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Clock {
+    // Injects the server
     @Autowired
     private Server server;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 3000)
     public void tick() {
         server.all().send("chat", "tick: " + System.currentTimeMillis());
     }
