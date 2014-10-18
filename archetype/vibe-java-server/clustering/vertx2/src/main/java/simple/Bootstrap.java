@@ -20,9 +20,10 @@ import org.vertx.java.platform.Verticle;
 public class Bootstrap extends Verticle {
     @Override
     public void start() {
+        final ClusteredServer server = new ClusteredServer();
         // You need to set cluster configuration from vertx-maven-plugin to true to enable distributed event bus
         final EventBus eventBus = vertx.eventBus();
-        final ClusteredServer server = new ClusteredServer();
+        // Receives a message
         eventBus.registerHandler("vibe", new Handler<Message<byte[]>>() {
             @SuppressWarnings("unchecked")
             @Override
@@ -42,6 +43,7 @@ public class Bootstrap extends Verticle {
                 server.messageAction().on(body);
             }
         });
+        // Publishes a message
         server.publishAction(new Action<Map<String,Object>>() {
             @Override
             public void on(Map<String, Object> message) {
@@ -78,7 +80,6 @@ public class Bootstrap extends Verticle {
                 });
             }
         });
-
         HttpServer httpServer = vertx.createHttpServer();
         new VertxBridge(httpServer, "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
         httpServer.listen(Integer.parseInt(System.getProperty("vertx.port")));

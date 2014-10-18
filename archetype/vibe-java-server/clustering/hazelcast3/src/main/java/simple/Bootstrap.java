@@ -22,10 +22,10 @@ import com.hazelcast.instance.HazelcastInstanceFactory;
 public class Bootstrap implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent event) {
-        HazelcastInstance hazelcast = HazelcastInstanceFactory.newHazelcastInstance(new Config());
         final ClusteredServer server = new ClusteredServer();
+        HazelcastInstance hazelcast = HazelcastInstanceFactory.newHazelcastInstance(new Config());
         final ITopic<Map<String, Object>> topic = hazelcast.getTopic("vibe");
-        
+        // Receives a message
         topic.addMessageListener(new MessageListener<Map<String, Object>>() {
             @Override
             public void onMessage(Message<Map<String, Object>> message) {
@@ -33,6 +33,7 @@ public class Bootstrap implements ServletContextListener {
                 server.messageAction().on(message.getMessageObject());
             }
         });
+        // Publishes a message
         server.publishAction(new Action<Map<String, Object>>() {
             @Override
             public void on(Map<String, Object> message) {
@@ -61,7 +62,6 @@ public class Bootstrap implements ServletContextListener {
                 });
             }
         });
-        
         new AtmosphereBridge(event.getServletContext(), "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
     }
     
