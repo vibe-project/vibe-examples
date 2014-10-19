@@ -17,18 +17,18 @@ An archetype example is port of [basic echo and chat example](http://vibe-projec
 * Vibe Java Server
     * By platform.
         * [Atmosphere 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/atmosphere2)
-        * [Java WebSocket API 1](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/jwa1)
+        * [Java WebSocket API 1 with Jetty9](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/jwa1)
         * [Play 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/play2)
-        * [Servlet 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/servlet3)
+        * [Servlet 3 with Jetty9](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/servlet3)
         * [Vert.x 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/vertx2)
     * By clustering.
         * [Hazelcast 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/hazelcast3)
         * [jGroups 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/jgroups3)
-        * [JMS 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/jms2)
+        * [JMS 2 with HornetQ 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/jms2)
         * [Redis 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/redis2)
         * [Vert.x 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/vertx2)
     * By dependency injection.
-        * [CDI 1](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/cdi1)
+        * [CDI 1 with Weld 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/cdi1)
         * [Dagger 1](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/dagger1)
         * [Guice 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/guice3)
         * [HK 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/hk2)
