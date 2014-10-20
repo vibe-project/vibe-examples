@@ -22,6 +22,7 @@ An archetype example is port of [basic echo and chat example](http://vibe-projec
         * [Servlet 3 with Jetty9](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/servlet3)
         * [Vert.x 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/vertx2)
     * By clustering.
+        * [AMQP 1 with RabbitMQ 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/amqp1)
         * [Hazelcast 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/hazelcast3)
         * [jGroups 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/jgroups3)
         * [JMS 2 with HornetQ 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/jms2)
