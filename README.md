@@ -1,8 +1,8 @@
 ## Vibe Examples
-This project contains various working examples demonstrating how to use Vibe. To run examples, either download or clone the repository and consult each example README.
+This project contains various working examples demonstrating how to use Vibe. To run examples, either download or clone the repository and consult each example README. As several projects are involved, this repository doesn't use tag. Every example uses the latest versions. 
 
 ### Archetype
-An archetype example is port of [basic echo and chat example](http://vibe-project.github.io/projects/vibe-protocol/3.0.0-Alpha2/api/#module--vibe-protocol-) written in reference implementation and an bare-bones application which you can use as the starting point to write your own application.
+An archetype example is a port of [basic echo and chat example](http://vibe-project.github.io/projects/vibe-protocol/3.0.0-Alpha3/api/#module--vibe-protocol-) written in reference implementation and an bare-bones application which you can use as the starting point to write your own application.
 
 * A client
     * should connect to `http://localhost:8080/vibe`.
@@ -13,16 +13,15 @@ An archetype example is port of [basic echo and chat example](http://vibe-projec
     * should send `echo` event back to the client that sent the event.
     * should broadcast `chat` event to every client that connected to the server.
 
-#### Examples
-##### Vibe Java Server
-###### By platform
+#### Vibe Java Server
+##### By platform
 * [Atmosphere 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/atmosphere2)
 * [Java WebSocket API 1 with Jetty9](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/jwa1)
 * [Play 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/play2)
 * [Servlet 3 with Jetty9](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/servlet3)
 * [Vert.x 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/vertx2)
 
-###### By clustering
+##### By clustering
 * [AMQP 1 with RabbitMQ 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/amqp1)
 * [Hazelcast 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/hazelcast3)
 * [jGroups 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/jgroups3)
@@ -30,7 +29,7 @@ An archetype example is port of [basic echo and chat example](http://vibe-projec
 * [Redis 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/redis2)
 * [Vert.x 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/clustering/vertx2)
 
-###### By dependency injection
+##### By dependency injection
 * [CDI 1 with Weld 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/cdi1)
 * [Dagger 1](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/dagger1)
 * [Guice 3](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/guice3)
@@ -39,4 +38,10 @@ An archetype example is port of [basic echo and chat example](http://vibe-projec
 * [Spring 4](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/spring4)
 * [Tapestry 5](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/dependency-injection/tapestry5)
 
-##### [Vibe JavaScript Client](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-javascript-client)
+#### [Vibe JavaScript Client](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-javascript-client)
+
+### Migration
+A migration example is a port of other project's basic example or a simple application to help migrate into Vibe.
+
+### Examples
+* [Atmosphere 2](https://github.com/vibe-project/vibe-examples/tree/master/migration/atmosphere2)
