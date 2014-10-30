@@ -43,5 +43,4 @@ An archetype example is a port of [basic echo and chat example](http://vibe-proj
 ### Migration
 A migration example is a port of other project's basic example or a simple application to help migrate into Vibe.
 
-### Examples
 * [Atmosphere 2](https://github.com/vibe-project/vibe-examples/tree/master/migration/atmosphere2)
