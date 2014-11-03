@@ -7,8 +7,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 scalaVersion := "2.11.1"
 
 libraryDependencies ++= Seq(
-  "org.atmosphere" % "vibe-server" % "3.0.0-Alpha3",
-  "org.atmosphere" % "vibe-platform-server-play2" % "3.0.0-Alpha2"
+  "org.atmosphere" % "vibe-server" % "3.0.0-Alpha4",
+  "org.atmosphere" % "vibe-platform-server-play2" % "3.0.0-Alpha3"
 )
 
 resolvers += (
