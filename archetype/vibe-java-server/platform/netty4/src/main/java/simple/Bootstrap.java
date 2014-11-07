@@ -14,6 +14,8 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import java.net.URI;
 
 import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.server.ServerHttpExchange;
+import org.atmosphere.vibe.platform.server.ServerWebSocket;
 import org.atmosphere.vibe.platform.server.netty4.VibeServerCodec;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
@@ -59,8 +61,17 @@ public class Bootstrap {
                         protected boolean accept(HttpRequest req) {
                             return URI.create(req.getUri()).getPath().equals("/vibe");
                         }
-                    }
-                    .httpAction(server.httpAction()).websocketAction(server.websocketAction()));
+                        
+                        @Override
+                        protected Action<ServerHttpExchange> httpAction() {
+                            return server.httpAction();
+                        }
+                        
+                        @Override
+                        public Action<ServerWebSocket> wsAction() {
+                            return server.websocketAction();
+                        }
+                    });
                 }
             });
             Channel channel = bootstrap.bind(8080).sync().channel();
