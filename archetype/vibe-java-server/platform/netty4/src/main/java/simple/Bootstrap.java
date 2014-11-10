@@ -69,7 +69,7 @@ public class Bootstrap {
                         
                         @Override
                         public Action<ServerWebSocket> wsAction() {
-                            return server.websocketAction();
+                            return server.wsAction();
                         }
                     });
                 }

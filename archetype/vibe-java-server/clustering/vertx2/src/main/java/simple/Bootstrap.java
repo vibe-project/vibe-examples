@@ -8,13 +8,15 @@ import java.io.ObjectOutputStream;
 import java.util.Map;
 
 import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.vertx2.VertxBridge;
+import org.atmosphere.vibe.platform.server.vertx2.VertxServerHttpExchange;
+import org.atmosphere.vibe.platform.server.vertx2.VertxServerWebSocket;
 import org.atmosphere.vibe.server.ClusteredServer;
 import org.atmosphere.vibe.server.ServerSocket;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.eventbus.EventBus;
 import org.vertx.java.core.eventbus.Message;
 import org.vertx.java.core.http.HttpServer;
+import org.vertx.java.core.http.HttpServerRequest;
 import org.vertx.java.platform.Verticle;
 
 public class Bootstrap extends Verticle {
@@ -81,7 +83,22 @@ public class Bootstrap extends Verticle {
             }
         });
         HttpServer httpServer = vertx.createHttpServer();
-        new VertxBridge(httpServer, "/vibe").httpAction(server.httpAction()).websocketAction(server.websocketAction());
+        httpServer.requestHandler(new Handler<HttpServerRequest>() {
+            @Override
+            public void handle(HttpServerRequest req) {
+                if (req.path().equals("/vibe")) {
+                    server.httpAction().on(new VertxServerHttpExchange(req));
+                }
+            }
+        });
+        httpServer.websocketHandler(new Handler<org.vertx.java.core.http.ServerWebSocket>() {
+            @Override
+            public void handle(org.vertx.java.core.http.ServerWebSocket socket) {
+                if (socket.path().equals("/vibe")) {
+                    server.wsAction().on(new VertxServerWebSocket(socket));
+                }
+            }
+        });
         httpServer.listen(Integer.parseInt(System.getProperty("vertx.port")));
     }
 }

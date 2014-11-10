@@ -51,7 +51,7 @@ public class Bootstrap extends Controller {
         return new WebSocket<String>() {
             @Override
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-                server.websocketAction().on(new PlayServerWebSocket(request, in, out));
+                server.wsAction().on(new PlayServerWebSocket(request, in, out));
             }
         };
     }

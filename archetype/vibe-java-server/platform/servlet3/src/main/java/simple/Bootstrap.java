@@ -1,20 +1,24 @@
 package simple;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.WebListener;
 
 import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.servlet3.ServletBridge;
+import org.atmosphere.vibe.platform.server.ServerHttpExchange;
+import org.atmosphere.vibe.platform.server.servlet3.VibeServlet;
 import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.ServerSocket;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {
+    @SuppressWarnings("serial")
     @Override
     public void contextInitialized(ServletContextEvent event) {
-        final Server server = new DefaultServer();
+        final DefaultServer server = new DefaultServer();
+        server.setTransports("sse", "streamxhr", "streamxdr", "streamiframe", "longpollajax", "longpollxdr", "longpolljsonp");
         server.socketAction(new Action<ServerSocket>() {
             @Override
             public void on(final ServerSocket socket) {
@@ -36,7 +40,15 @@ public class Bootstrap implements ServletContextListener {
             }
         });
         
-        new ServletBridge(event.getServletContext(), "/vibe").httpAction(server.httpAction());
+        ServletContext context = event.getServletContext();
+        ServletRegistration.Dynamic reg = context.addServlet(VibeServlet.class.getName(), new VibeServlet() {
+            @Override
+            protected Action<ServerHttpExchange> httpAction() {
+                return server.httpAction();
+            }
+        });
+        reg.setAsyncSupported(true);
+        reg.addMapping("/vibe");
     }
     
     @Override
