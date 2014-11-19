@@ -16,6 +16,7 @@ An archetype example is a port of [basic echo and chat example](http://vibe-proj
 #### Vibe Java Server
 ##### By platform
 * [Atmosphere 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/atmosphere2)
+    * [JAX-RS 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/atmosphere2-jaxrs2)
 * [Java WebSocket API 1 with Jetty9](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/jwa1)
 * [Netty 4](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/netty4)
 * [Play 2](https://github.com/vibe-project/vibe-examples/tree/master/archetype/vibe-java-server/platform/play2)
