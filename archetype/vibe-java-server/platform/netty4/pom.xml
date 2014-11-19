@@ -18,6 +18,11 @@
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
+            <artifactId>vibe-platform-server</artifactId>
+            <version>${vibe.platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.atmosphere</groupId>
             <artifactId>vibe-platform-server-netty4</artifactId>
             <version>${vibe.platform.version}</version>
         </dependency>
