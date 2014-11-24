@@ -8,7 +8,7 @@ $(function () {
     var author = null;
     var logged = false;
 
-    var socket = vibe.open("/chat");
+    var socket = vibe.open("chat");
     socket.on("connecting", function() {
         content.html($('<p>', {text: 'Connecting to the server'}));
     });
