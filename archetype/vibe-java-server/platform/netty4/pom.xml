@@ -8,7 +8,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <vibe.server.version>3.0.0-Alpha5</vibe.server.version>
-        <vibe.platform.version>3.0.0-Alpha5</vibe.platform.version>
+        <vibe.platform.version>3.0.0-Alpha6</vibe.platform.version>
     </properties>
     <dependencies>
         <dependency>
@@ -28,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <artifactId>netty-codec-http</artifactId>
             <version>4.0.24.Final</version>
         </dependency>
     </dependencies>

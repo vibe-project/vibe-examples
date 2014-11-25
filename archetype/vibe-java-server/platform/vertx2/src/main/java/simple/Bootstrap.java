@@ -1,14 +1,16 @@
 package simple;
 
 import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.vertx2.VertxServerHttpExchange;
-import org.atmosphere.vibe.platform.server.vertx2.VertxServerWebSocket;
+import org.atmosphere.vibe.platform.server.ServerHttpExchange;
+import org.atmosphere.vibe.platform.server.ServerWebSocket;
+import org.atmosphere.vibe.platform.server.vertx2.VibeRequestHandler;
+import org.atmosphere.vibe.platform.server.vertx2.VibeWebSocketHandler;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.ServerSocket;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.http.HttpServer;
-import org.vertx.java.core.http.HttpServerRequest;
+import org.vertx.java.core.http.RouteMatcher;
 import org.vertx.java.platform.Verticle;
 
 public class Bootstrap extends Verticle {
@@ -37,19 +39,25 @@ public class Bootstrap extends Verticle {
         });
 
         HttpServer httpServer = vertx.createHttpServer();
-        httpServer.requestHandler(new Handler<HttpServerRequest>() {
+        RouteMatcher httpMatcher = new RouteMatcher();
+        httpMatcher.all("/vibe", new VibeRequestHandler() {
             @Override
-            public void handle(HttpServerRequest req) {
-                if (req.path().equals("/vibe")) {
-                    server.httpAction().on(new VertxServerHttpExchange(req));
-                }
+            protected Action<ServerHttpExchange> httpAction() {
+                return server.httpAction();
             }
         });
+        httpServer.requestHandler(httpMatcher);
+        final VibeWebSocketHandler websocketHandler = new VibeWebSocketHandler() {
+            @Override
+            protected Action<ServerWebSocket> wsAction() {
+                return server.wsAction();
+            }
+        };
         httpServer.websocketHandler(new Handler<org.vertx.java.core.http.ServerWebSocket>() {
             @Override
             public void handle(org.vertx.java.core.http.ServerWebSocket socket) {
                 if (socket.path().equals("/vibe")) {
-                    server.wsAction().on(new VertxServerWebSocket(socket));
+                    websocketHandler.handle(socket);
                 }
             }
         });

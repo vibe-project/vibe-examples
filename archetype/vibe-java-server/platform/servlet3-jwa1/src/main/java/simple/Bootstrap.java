@@ -57,7 +57,8 @@ public class Bootstrap implements ServletContextListener {
         reg.addMapping("/vibe");
         // Java WebSocket API
         ServerContainer container = (ServerContainer) context.getAttribute(ServerContainer.class.getName());
-        ServerEndpointConfig config = ServerEndpointConfig.Builder.create(VibeServerEndpoint.class, "/vibe").configurator(new Configurator() {
+        ServerEndpointConfig config = ServerEndpointConfig.Builder.create(VibeServerEndpoint.class, "/vibe")
+        .configurator(new Configurator() {
             @Override
             public <T> T getEndpointInstance(Class<T> endpointClass) throws InstantiationException {
                 return endpointClass.cast(new VibeServerEndpoint() {
