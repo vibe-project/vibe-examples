@@ -1,4 +1,4 @@
-import simple.{Bootstrap => T}
+import org.atmosphere.vibe.example.platform.play2.{Bootstrap => T}
 
 import play.api.GlobalSettings
 import play.api.mvc._
