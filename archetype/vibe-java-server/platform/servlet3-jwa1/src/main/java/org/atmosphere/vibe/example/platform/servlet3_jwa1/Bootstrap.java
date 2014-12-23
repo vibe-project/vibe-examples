@@ -10,11 +10,11 @@ import javax.websocket.server.ServerContainer;
 import javax.websocket.server.ServerEndpointConfig;
 import javax.websocket.server.ServerEndpointConfig.Configurator;
 
-import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.ServerHttpExchange;
-import org.atmosphere.vibe.platform.server.ServerWebSocket;
-import org.atmosphere.vibe.platform.server.jwa1.VibeServerEndpoint;
-import org.atmosphere.vibe.platform.server.servlet3.VibeServlet;
+import org.atmosphere.vibe.platform.action.Action;
+import org.atmosphere.vibe.platform.bridge.jwa1.VibeServerEndpoint;
+import org.atmosphere.vibe.platform.bridge.servlet3.VibeServlet;
+import org.atmosphere.vibe.platform.http.ServerHttpExchange;
+import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.ServerSocket;

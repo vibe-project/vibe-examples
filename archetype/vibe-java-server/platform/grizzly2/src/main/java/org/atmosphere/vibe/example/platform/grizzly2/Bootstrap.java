@@ -1,10 +1,10 @@
 package org.atmosphere.vibe.example.platform.grizzly2;
 
-import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.ServerHttpExchange;
-import org.atmosphere.vibe.platform.server.ServerWebSocket;
-import org.atmosphere.vibe.platform.server.grizzly2.VibeHttpHandler;
-import org.atmosphere.vibe.platform.server.grizzly2.VibeWebSocketApplication;
+import org.atmosphere.vibe.platform.action.Action;
+import org.atmosphere.vibe.platform.bridge.grizzly2.VibeHttpHandler;
+import org.atmosphere.vibe.platform.bridge.grizzly2.VibeWebSocketApplication;
+import org.atmosphere.vibe.platform.http.ServerHttpExchange;
+import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.ServerSocket;

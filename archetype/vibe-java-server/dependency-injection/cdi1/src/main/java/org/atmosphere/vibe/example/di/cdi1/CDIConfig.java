@@ -3,7 +3,7 @@ package org.atmosphere.vibe.example.di.cdi1;
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
 
-import org.atmosphere.vibe.platform.Action;
+import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.server.DefaultServer;
 import org.atmosphere.vibe.server.Server;
 import org.atmosphere.vibe.server.ServerSocket;

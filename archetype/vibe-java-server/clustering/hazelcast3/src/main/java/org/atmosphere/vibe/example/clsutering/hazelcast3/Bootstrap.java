@@ -9,10 +9,10 @@ import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.WebListener;
 
 import org.atmosphere.cpr.ApplicationConfig;
-import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.server.ServerHttpExchange;
-import org.atmosphere.vibe.platform.server.ServerWebSocket;
-import org.atmosphere.vibe.platform.server.atmosphere2.VibeAtmosphereServlet;
+import org.atmosphere.vibe.platform.action.Action;
+import org.atmosphere.vibe.platform.bridge.atmosphere2.VibeAtmosphereServlet;
+import org.atmosphere.vibe.platform.http.ServerHttpExchange;
+import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.atmosphere.vibe.server.ClusteredServer;
 import org.atmosphere.vibe.server.ServerSocket;
 
