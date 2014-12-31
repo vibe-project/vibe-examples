@@ -5,7 +5,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 
 @Path("broadcast")
 public class MyResource {

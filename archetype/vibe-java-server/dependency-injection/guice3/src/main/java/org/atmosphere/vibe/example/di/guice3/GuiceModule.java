@@ -2,10 +2,10 @@ package org.atmosphere.vibe.example.di.guice3;
 
 import javax.inject.Singleton;
 
+import org.atmosphere.vibe.DefaultServer;
+import org.atmosphere.vibe.Server;
+import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
-import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.ServerSocket;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;

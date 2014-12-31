@@ -2,10 +2,10 @@ package org.atmosphere.vibe.example.di.hk2;
 
 import javax.annotation.PostConstruct;
 
+import org.atmosphere.vibe.DefaultServer;
+import org.atmosphere.vibe.Server;
+import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
-import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.ServerSocket;
 import org.glassfish.hk2.api.Factory;
 import org.jvnet.hk2.annotations.Service;
 

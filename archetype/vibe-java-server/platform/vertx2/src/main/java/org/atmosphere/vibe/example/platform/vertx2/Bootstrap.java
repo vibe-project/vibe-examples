@@ -1,13 +1,13 @@
 package org.atmosphere.vibe.example.platform.vertx2;
 
+import org.atmosphere.vibe.DefaultServer;
+import org.atmosphere.vibe.Server;
+import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.vertx2.VibeRequestHandler;
 import org.atmosphere.vibe.platform.bridge.vertx2.VibeWebSocketHandler;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
-import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.ServerSocket;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.http.HttpServer;
 import org.vertx.java.core.http.RouteMatcher;

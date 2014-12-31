@@ -10,14 +10,14 @@ import javax.websocket.server.ServerContainer;
 import javax.websocket.server.ServerEndpointConfig;
 import javax.websocket.server.ServerEndpointConfig.Configurator;
 
+import org.atmosphere.vibe.DefaultServer;
+import org.atmosphere.vibe.Server;
+import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.jwa1.VibeServerEndpoint;
 import org.atmosphere.vibe.platform.bridge.servlet3.VibeServlet;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
-import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.ServerSocket;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {

@@ -7,13 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Map;
 
+import org.atmosphere.vibe.ClusteredServer;
+import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.vertx2.VibeRequestHandler;
 import org.atmosphere.vibe.platform.bridge.vertx2.VibeWebSocketHandler;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
-import org.atmosphere.vibe.server.ClusteredServer;
-import org.atmosphere.vibe.server.ServerSocket;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.eventbus.EventBus;
 import org.vertx.java.core.eventbus.Message;

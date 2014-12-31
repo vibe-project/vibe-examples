@@ -1,9 +1,9 @@
 package org.atmosphere.vibe.example.di.spring4;
 
+import org.atmosphere.vibe.DefaultServer;
+import org.atmosphere.vibe.Server;
+import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
-import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.ServerSocket;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

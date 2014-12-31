@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 import org.glassfish.hk2.api.Immediate;
 import org.jvnet.hk2.annotations.Service;
 

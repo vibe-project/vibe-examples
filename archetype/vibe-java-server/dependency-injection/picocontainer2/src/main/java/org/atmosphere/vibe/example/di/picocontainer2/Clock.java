@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.PostConstruct;
 
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 import org.picocontainer.annotations.Inject;
 
 public class Clock {

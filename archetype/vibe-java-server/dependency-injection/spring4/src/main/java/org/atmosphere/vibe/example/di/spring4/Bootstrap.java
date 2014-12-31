@@ -7,11 +7,11 @@ import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.WebListener;
 
 import org.atmosphere.cpr.ApplicationConfig;
+import org.atmosphere.vibe.Server;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.atmosphere2.VibeAtmosphereServlet;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
-import org.atmosphere.vibe.server.Server;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @WebListener

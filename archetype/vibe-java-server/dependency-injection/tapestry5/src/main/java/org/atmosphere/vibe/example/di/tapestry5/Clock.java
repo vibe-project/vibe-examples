@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.tapestry5.ioc.annotations.EagerLoad;
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 
 @EagerLoad
 public class Clock {

@@ -1,6 +1,6 @@
 package org.atmosphere.vibe.example.di.spring4;
 
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

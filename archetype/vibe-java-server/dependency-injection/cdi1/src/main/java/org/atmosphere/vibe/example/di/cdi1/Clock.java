@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 
 @Singleton
 public class Clock {

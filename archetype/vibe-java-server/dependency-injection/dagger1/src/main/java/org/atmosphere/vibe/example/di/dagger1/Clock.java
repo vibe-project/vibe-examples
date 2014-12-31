@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import org.atmosphere.vibe.server.Server;
+import org.atmosphere.vibe.Server;
 
 public class Clock {
     // Injects the server

@@ -9,14 +9,14 @@ import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.WebListener;
 
 import org.atmosphere.cpr.ApplicationConfig;
-import org.atmosphere.vibe.platform.Action;
-import org.atmosphere.vibe.platform.VoidAction;
-import org.atmosphere.vibe.platform.server.ServerHttpExchange;
-import org.atmosphere.vibe.platform.server.ServerWebSocket;
-import org.atmosphere.vibe.platform.server.atmosphere2.VibeAtmosphereServlet;
-import org.atmosphere.vibe.server.DefaultServer;
-import org.atmosphere.vibe.server.Server;
-import org.atmosphere.vibe.server.ServerSocket;
+import org.atmosphere.vibe.DefaultServer;
+import org.atmosphere.vibe.Server;
+import org.atmosphere.vibe.ServerSocket;
+import org.atmosphere.vibe.platform.action.Action;
+import org.atmosphere.vibe.platform.action.VoidAction;
+import org.atmosphere.vibe.platform.bridge.atmosphere2.VibeAtmosphereServlet;
+import org.atmosphere.vibe.platform.http.ServerHttpExchange;
+import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,23 +34,23 @@ public class Bootstrap implements ServletContextListener {
         server.socketAction(new Action<ServerSocket>() {
             @Override
             public void on(final ServerSocket socket) {
-                logger.info("{} is opened", socket.id());
+                logger.info("{} is opened", socket.uri());
                 socket.closeAction(new VoidAction() {
                     @Override
                     public void on() {
-                        logger.info("{} is closed", socket.id());
+                        logger.info("{} is closed", socket.uri());
                     }
                 });
                 socket.errorAction(new Action<Throwable>() {
                     @Override
                     public void on(Throwable t) {
-                        logger.info("{} got an error {}", socket.id(), t);
+                        logger.info("{} got an error {}", socket.uri(), t);
                     }
                 });
                 socket.on("heartbeat", new VoidAction() {
                     @Override
                     public void on() {
-                        logger.info("heartbeat sent by {}", socket.id());
+                        logger.info("heartbeat sent by {}", socket.uri());
                     }
                 });
                 socket.on("message", new Action<Map<String, Object>>() {

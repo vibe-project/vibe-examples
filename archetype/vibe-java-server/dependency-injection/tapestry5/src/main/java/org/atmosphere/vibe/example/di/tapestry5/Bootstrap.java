@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebListener;
 import org.apache.tapestry5.ioc.Registry;
 import org.apache.tapestry5.ioc.RegistryBuilder;
 import org.atmosphere.cpr.ApplicationConfig;
+import org.atmosphere.vibe.Server;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.atmosphere2.VibeAtmosphereServlet;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
-import org.atmosphere.vibe.server.Server;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {

@@ -19,12 +19,7 @@
         </dependency>
         <dependency>
             <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-platform-server</artifactId>
-            <version>${vibe.platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.atmosphere</groupId>
-            <artifactId>vibe-platform-server-atmosphere2</artifactId>
+            <artifactId>vibe-platform-bridge-atmosphere2</artifactId>
             <version>${vibe.platform.version}</version>
         </dependency>
         <dependency>
