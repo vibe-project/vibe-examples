@@ -8,6 +8,8 @@ import org.atmosphere.vibe.platform.bridge.vertx2.VibeRequestHandler;
 import org.atmosphere.vibe.platform.bridge.vertx2.VibeWebSocketHandler;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
+import org.atmosphere.vibe.transport.http.HttpTransportServer;
+import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.http.HttpServer;
 import org.vertx.java.core.http.RouteMatcher;
@@ -38,19 +40,22 @@ public class Bootstrap extends Verticle {
             }
         });
 
+        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
+
         HttpServer httpServer = vertx.createHttpServer();
         RouteMatcher httpMatcher = new RouteMatcher();
         httpMatcher.all("/vibe", new VibeRequestHandler() {
             @Override
             protected Action<ServerHttpExchange> httpAction() {
-                return server.httpAction();
+                return httpTransportServer;
             }
         });
         httpServer.requestHandler(httpMatcher);
         final VibeWebSocketHandler websocketHandler = new VibeWebSocketHandler() {
             @Override
             protected Action<ServerWebSocket> wsAction() {
-                return server.wsAction();
+                return wsTransportServer;
             }
         };
         httpServer.websocketHandler(new Handler<org.vertx.java.core.http.ServerWebSocket>() {

@@ -8,6 +8,8 @@ import org.atmosphere.vibe.platform.bridge.grizzly2.VibeHttpHandler;
 import org.atmosphere.vibe.platform.bridge.grizzly2.VibeWebSocketApplication;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
+import org.atmosphere.vibe.transport.http.HttpTransportServer;
+import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.NetworkListener;
 import org.glassfish.grizzly.http.server.ServerConfiguration;
@@ -38,12 +40,15 @@ public class Bootstrap {
             }
         });
 
+        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
+
         HttpServer httpServer = HttpServer.createSimpleServer();
         ServerConfiguration config = httpServer.getServerConfiguration();
         config.addHttpHandler(new VibeHttpHandler() {
             @Override
             protected Action<ServerHttpExchange> httpAction() {
-                return server.httpAction();
+                return httpTransportServer;
             }
         }, "/vibe");
         NetworkListener listener = httpServer.getListener("grizzly");
@@ -51,7 +56,7 @@ public class Bootstrap {
         WebSocketEngine.getEngine().register("", "/vibe", new VibeWebSocketApplication() {
             @Override
             protected Action<ServerWebSocket> wsAction() {
-                return server.wsAction();
+                return wsTransportServer;
             }
         });
         httpServer.start();

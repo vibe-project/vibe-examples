@@ -6,6 +6,8 @@ import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.play2.PlayServerHttpExchange;
 import org.atmosphere.vibe.platform.bridge.play2.PlayServerWebSocket;
+import org.atmosphere.vibe.transport.http.HttpTransportServer;
+import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 
 import play.libs.F.Promise;
 import play.mvc.BodyParser;
@@ -16,6 +18,8 @@ import play.mvc.WebSocket;
 
 public class Bootstrap extends Controller {
     static Server server = new DefaultServer();
+    static HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+    static WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
     static {
         server.socketAction(new Action<ServerSocket>() {
             @Override
@@ -42,7 +46,7 @@ public class Bootstrap extends Controller {
     @BodyParser.Of(BodyParser.TolerantText.class)
     public static Promise<Result> http() {
         PlayServerHttpExchange http = new PlayServerHttpExchange(request(), response());
-        server.httpAction().on(http);
+        httpTransportServer.on(http);
         return http.result();
     }
     
@@ -51,7 +55,7 @@ public class Bootstrap extends Controller {
         return new WebSocket<String>() {
             @Override
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-                server.wsAction().on(new PlayServerWebSocket(request, in, out));
+                wsTransportServer.on(new PlayServerWebSocket(request, in, out));
             }
         };
     }

@@ -20,6 +20,8 @@ import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.netty4.VibeServerCodec;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
+import org.atmosphere.vibe.transport.http.HttpTransportServer;
+import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 
 public class Bootstrap {
     public static void main(String[] args) throws Exception {
@@ -45,6 +47,9 @@ public class Bootstrap {
             }
         });
 
+        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
+
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -64,12 +69,12 @@ public class Bootstrap {
                         
                         @Override
                         protected Action<ServerHttpExchange> httpAction() {
-                            return server.httpAction();
+                            return httpTransportServer;
                         }
                         
                         @Override
                         public Action<ServerWebSocket> wsAction() {
-                            return server.wsAction();
+                            return wsTransportServer;
                         }
                     });
                 }

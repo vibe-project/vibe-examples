@@ -68,12 +68,12 @@ public class Bootstrap implements ServletContextListener {
         ServletRegistration.Dynamic reg = context.addServlet(VibeAtmosphereServlet.class.getName(), new VibeAtmosphereServlet() {
             @Override
             protected Action<ServerHttpExchange> httpAction() {
-                return server.httpAction();
+                return httpTransportServer;
             }
 
             @Override
             protected Action<ServerWebSocket> wsAction() {
-                return server.wsAction();
+                return wsTransportServer;
             }
         });
         reg.setAsyncSupported(true);

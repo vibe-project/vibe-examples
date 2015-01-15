@@ -18,6 +18,8 @@ import org.atmosphere.vibe.platform.bridge.jwa1.VibeServerEndpoint;
 import org.atmosphere.vibe.platform.bridge.servlet3.VibeServlet;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
+import org.atmosphere.vibe.transport.http.HttpTransportServer;
+import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {
@@ -45,16 +47,20 @@ public class Bootstrap implements ServletContextListener {
                 });
             }
         });
+        
+        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
         // Servlet
         ServletContext context = event.getServletContext();
         ServletRegistration.Dynamic reg = context.addServlet(VibeServlet.class.getName(), new VibeServlet() {
             @Override
             protected Action<ServerHttpExchange> httpAction() {
-                return server.httpAction();
+                return httpTransportServer;
             }
         });
         reg.setAsyncSupported(true);
         reg.addMapping("/vibe");
+        
+        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
         // Java WebSocket API
         ServerContainer container = (ServerContainer) context.getAttribute(ServerContainer.class.getName());
         ServerEndpointConfig config = ServerEndpointConfig.Builder.create(VibeServerEndpoint.class, "/vibe")
@@ -64,7 +70,7 @@ public class Bootstrap implements ServletContextListener {
                 return endpointClass.cast(new VibeServerEndpoint() {
                     @Override
                     protected Action<ServerWebSocket> wsAction() {
-                        return server.wsAction();
+                        return wsTransportServer;
                     }
                 });
             }

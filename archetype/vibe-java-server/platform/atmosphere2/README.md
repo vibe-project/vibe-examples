@@ -4,7 +4,7 @@ Type:
 mvn jetty:run
 ```
 
-Then, open the [client](http://jsbin.com/fejobu/1/watch?js,console) in your browser.
+Then, open the [client](http://jsbin.com/rixiku/1/watch?js,console) in your browser.
 
 **Note**
 

@@ -15,6 +15,8 @@ import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.atmosphere2.VibeAtmosphereServlet;
 import org.atmosphere.vibe.platform.http.ServerHttpExchange;
 import org.atmosphere.vibe.platform.ws.ServerWebSocket;
+import org.atmosphere.vibe.transport.http.HttpTransportServer;
+import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 import org.jgroups.JChannel;
 import org.jgroups.Message;
 import org.jgroups.ReceiverAdapter;
@@ -79,16 +81,19 @@ public class Bootstrap implements ServletContextListener {
             }
         });
 
+        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
+
         ServletContext context = event.getServletContext();
         ServletRegistration.Dynamic reg = context.addServlet(VibeAtmosphereServlet.class.getName(), new VibeAtmosphereServlet() {
             @Override
             protected Action<ServerHttpExchange> httpAction() {
-                return server.httpAction();
+                return httpTransportServer;
             }
 
             @Override
             protected Action<ServerWebSocket> wsAction() {
-                return server.wsAction();
+                return wsTransportServer;
             }
         });
         reg.setAsyncSupported(true);
