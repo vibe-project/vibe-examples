@@ -4,6 +4,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -20,14 +21,11 @@ import org.atmosphere.vibe.Server;
 import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.atmosphere2.VibeAtmosphereServlet;
-import org.atmosphere.vibe.platform.http.ServerHttpExchange;
-import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.atmosphere.vibe.transport.http.HttpTransportServer;
 import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {
-    @SuppressWarnings("serial")
     @Override
     public void contextInitialized(ServletContextEvent event) {
         final Server server = new DefaultServer();
@@ -52,21 +50,12 @@ public class Bootstrap implements ServletContextListener {
             }
         });
 
-        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
-        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
+        HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
 
         ServletContext context = event.getServletContext();
-        ServletRegistration.Dynamic reg = context.addServlet(VibeAtmosphereServlet.class.getName(), new VibeAtmosphereServlet() {
-            @Override
-            protected Action<ServerHttpExchange> httpAction() {
-                return httpTransportServer;
-            }
-
-            @Override
-            protected Action<ServerWebSocket> wsAction() {
-                return wsTransportServer;
-            }
-        });
+        Servlet servlet = new VibeAtmosphereServlet().httpAction(httpTransportServer).wsAction(wsTransportServer);
+        ServletRegistration.Dynamic reg = context.addServlet(VibeAtmosphereServlet.class.getName(), servlet);
         reg.setAsyncSupported(true);
         reg.setInitParameter(ApplicationConfig.DISABLE_ATMOSPHEREINTERCEPTOR, Boolean.TRUE.toString());
         reg.addMapping("/vibe");

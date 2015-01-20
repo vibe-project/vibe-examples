@@ -8,7 +8,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <vibe.server.version>3.0.0-Alpha11</vibe.server.version>
-        <vibe.platform.version>3.0.0-Alpha8</vibe.platform.version>
+        <vibe.platform.version>3.0.0-Alpha9</vibe.platform.version>
         <grizzly.version>2.3.17</grizzly.version>
     </properties>
     <dependencies>

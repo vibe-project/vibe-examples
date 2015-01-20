@@ -6,8 +6,6 @@ import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.grizzly2.VibeHttpHandler;
 import org.atmosphere.vibe.platform.bridge.grizzly2.VibeWebSocketApplication;
-import org.atmosphere.vibe.platform.http.ServerHttpExchange;
-import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.atmosphere.vibe.transport.http.HttpTransportServer;
 import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 import org.glassfish.grizzly.http.server.HttpServer;
@@ -40,25 +38,15 @@ public class Bootstrap {
             }
         });
 
-        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
-        final WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
+        HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        WebSocketTransportServer wsTransportServer = new WebSocketTransportServer().transportAction(server);
 
         HttpServer httpServer = HttpServer.createSimpleServer();
         ServerConfiguration config = httpServer.getServerConfiguration();
-        config.addHttpHandler(new VibeHttpHandler() {
-            @Override
-            protected Action<ServerHttpExchange> httpAction() {
-                return httpTransportServer;
-            }
-        }, "/vibe");
+        config.addHttpHandler(new VibeHttpHandler().httpAction(httpTransportServer), "/vibe");
         NetworkListener listener = httpServer.getListener("grizzly");
         listener.registerAddOn(new WebSocketAddOn());
-        WebSocketEngine.getEngine().register("", "/vibe", new VibeWebSocketApplication() {
-            @Override
-            protected Action<ServerWebSocket> wsAction() {
-                return wsTransportServer;
-            }
-        });
+        WebSocketEngine.getEngine().register("", "/vibe", new VibeWebSocketApplication().wsAction(wsTransportServer));
         httpServer.start();
         System.in.read();
     }

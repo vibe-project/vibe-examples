@@ -1,5 +1,6 @@
 package org.atmosphere.vibe.example.platform.servlet3_jwa1;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,14 +17,11 @@ import org.atmosphere.vibe.ServerSocket;
 import org.atmosphere.vibe.platform.action.Action;
 import org.atmosphere.vibe.platform.bridge.jwa1.VibeServerEndpoint;
 import org.atmosphere.vibe.platform.bridge.servlet3.VibeServlet;
-import org.atmosphere.vibe.platform.http.ServerHttpExchange;
-import org.atmosphere.vibe.platform.ws.ServerWebSocket;
 import org.atmosphere.vibe.transport.http.HttpTransportServer;
 import org.atmosphere.vibe.transport.ws.WebSocketTransportServer;
 
 @WebListener
 public class Bootstrap implements ServletContextListener {
-    @SuppressWarnings("serial")
     @Override
     public void contextInitialized(ServletContextEvent event) {
         final Server server = new DefaultServer();
@@ -48,15 +46,11 @@ public class Bootstrap implements ServletContextListener {
             }
         });
         
-        final HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
+        HttpTransportServer httpTransportServer = new HttpTransportServer().transportAction(server);
         // Servlet
         ServletContext context = event.getServletContext();
-        ServletRegistration.Dynamic reg = context.addServlet(VibeServlet.class.getName(), new VibeServlet() {
-            @Override
-            protected Action<ServerHttpExchange> httpAction() {
-                return httpTransportServer;
-            }
-        });
+        Servlet servlet = new VibeServlet().httpAction(httpTransportServer);
+        ServletRegistration.Dynamic reg = context.addServlet(VibeServlet.class.getName(), servlet);
         reg.setAsyncSupported(true);
         reg.addMapping("/vibe");
         
@@ -67,12 +61,7 @@ public class Bootstrap implements ServletContextListener {
         .configurator(new Configurator() {
             @Override
             public <T> T getEndpointInstance(Class<T> endpointClass) throws InstantiationException {
-                return endpointClass.cast(new VibeServerEndpoint() {
-                    @Override
-                    protected Action<ServerWebSocket> wsAction() {
-                        return wsTransportServer;
-                    }
-                });
+                return endpointClass.cast(new VibeServerEndpoint().wsAction(wsTransportServer));
             }
         })
         .build();
