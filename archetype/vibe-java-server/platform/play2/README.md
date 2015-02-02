@@ -4,7 +4,7 @@ Type:
 activator "run 8080"
 ```
 
-Then, open the [client](http://jsbin.com/bigiwi/1/watch?js,console) in your browser.
+Then, open the [client](http://jsbin.com/duhatu/1/watch?js,console) in your browser.
 
 **Note**
 
