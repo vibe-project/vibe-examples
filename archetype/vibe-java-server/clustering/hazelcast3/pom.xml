@@ -8,7 +8,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <vibe.server.version>3.0.0-Alpha14</vibe.server.version>
+        <vibe.server.version>3.0.0-Alpha15</vibe.server.version>
         <vibe.platform.version>3.0.0-Alpha9</vibe.platform.version>
         <hazelcast.version>3.2.3</hazelcast.version>
     </properties>
