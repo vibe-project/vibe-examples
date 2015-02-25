@@ -43,7 +43,7 @@ public class Bootstrap extends Controller {
         });
     }
 
-    @BodyParser.Of(BodyParser.TolerantText.class)
+    @BodyParser.Of(BodyParser.Raw.class)
     public static Promise<Result> http() {
         PlayServerHttpExchange http = new PlayServerHttpExchange(request(), response());
         httpTransportServer.on(http);
