@@ -1,3 +1,5 @@
+**Notice:** Vibe has [renamed](https://groups.google.com/d/msg/vibe-project/kmURxoLC85I/UO7ECEdOYs4J) to Cettia and is no longer maintained. Use [Cettia](http://cettia.io/).
+
 ## Vibe Examples
 This project contains various working examples demonstrating how to use Vibe. To run examples, either download or clone the repository and consult each example README. As several projects are involved, this repository doesn't use tag. Every example uses the latest versions. 
 
